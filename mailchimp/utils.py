@@ -290,14 +290,14 @@ class BaseView(object):
     
     def named_redirect(self, viewname, urlconf=None, args=None, kwargs=None,
             prefix=None, current_app=None):
-        return self.redirect(reverse(view, urlconf, args, kwargs, prefix, current_app))
+        return self.redirect(reverse(viewname, urlconf, args, kwargs, prefix, current_app))
     
     def permanent_redirect(self, url):
         return HttpResponsePermanentRedirect(url)
     
     def named_permanent_redirect(self, viewname, urlconf=None, args=None,
             kwargs=None, prefix=None, current_app=None):
-        return self.permanent_redirect(reverse(view, urlconf, args, kwargs, prefix, current_app))
+        return self.permanent_redirect(reverse(viewname, urlconf, args, kwargs, prefix, current_app))
     
     def not_modified(self, data=''):
         return HttpResponseNotModified(data)
